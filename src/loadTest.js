@@ -36,15 +36,7 @@ function startRequest() {
     var res = http.post("https://directline.botframework.com/v3/directline/conversations/", "", params);
 
     if (res.status != 200 && res.status != 201) {
-        console.log("");
-        console.log("");
-        console.log("---- ERRO START REQUEST -- ");
-        console.log("");
-        console.log(res);
-        console.log("");
-        console.log("---- END ERRO START REQUEST -- ");
-        console.log("");
-        console.log("");
+        logError(res, "START REQUEST");         
     }
 
     var obj = JSON.parse(res.body);
@@ -73,15 +65,7 @@ function sendActivity(token, ID) {
     var res = http.post(url, payload, params);
 
     if (res.status != 200 && res.status != 201) {
-        console.log("");
-        console.log("");
-        console.log("---- ERRO SEND ACTIVITY -- ");
-        console.log("");
-        console.log(res);
-        console.log("");
-        console.log("---- END ERRO SEND ACTIVITY -- ");
-        console.log("");
-        console.log("");
+        logError(res, "SEND ACTIVITY");  
     }
 
 }
@@ -99,18 +83,26 @@ function getActivity(token, ID) {
     var res = http.get(url, params);
 
     if (res.status != 200 && res.status != 201) {
-        console.log("");
-        console.log("");
-        console.log("---- ERRO GET ACTIVITY -- ");
-        console.log("");
-        console.log(res);
-        console.log("");
-        console.log("---- END ERRO GET ACTIVITY -- ");
-        console.log("");
-        console.log("");
+        logError(res, "GET ACTIVITY");       
     }
 }
 
+
+function logError(res, nameFunction)
+{
+    var error = res;
+    var nameLog = nameFunction;
+
+    console.log("");
+    console.log("");
+    console.log("---- ERRO " + nameLog + " -- ");
+    console.log("");
+    console.log(error);
+    console.log("");
+    console.log("---- FIM " + nameLog + " -- ");
+    console.log("");
+    console.log("");
+}
 
 
 export function handleSummary(data) {
