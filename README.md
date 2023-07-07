@@ -1,4 +1,6 @@
-# Teste de Carga do Azure Bot Framework através de Direct Line 
+# Teste de Carga com K6 
+
+Teste de Carga do Azure Bot Framework através de Direct Line , utilizando o K6
 
 ## Tecnologias
 
