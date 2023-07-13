@@ -12,3 +12,5 @@ Javascript
 ## Fontes: 
 K6 utilizando Ramping VU's-> [K6 Doc - Ramping VU's(https://k6.io/docs/using-k6/scenarios/executors/ramping-vus/)
 
+## Execução:
+k6 run C:\Work\K6\test.js
